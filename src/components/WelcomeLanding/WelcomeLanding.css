@@ -1,0 +1,417 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #e9f1fa;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.app.app--welcome {
+  min-height: 100dvh;
+  padding: 8px;
+}
+
+.welcome-page {
+  --page-width: 430px;
+  position: relative;
+  width: min(calc(100vw - 16px), var(--page-width));
+  height: calc(100dvh - 16px);
+  min-height: 704px;
+  margin: 0 auto;
+  overflow: hidden;
+  color: #fff;
+  border: 1px solid rgba(0, 132, 255, 0.2);
+  border-radius: 24px;
+  background: #021846;
+  box-shadow: 0 25px 70px rgba(0, 30, 90, 0.22);
+}
+
+.welcome-page::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -2%;
+  background-image:
+    linear-gradient(180deg, rgba(1, 10, 44, 0.08) 0%, rgba(0, 20, 70, 0.02) 52%, rgba(0, 9, 35, 0.28) 100%),
+    url("../../../img/img7.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform, opacity;
+  animation: background-enter 1.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.welcome-header {
+  flex: 0 0 auto;
+  padding: max(28px, env(safe-area-inset-top)) 24px 0;
+  text-align: center;
+}
+
+.logo-glow {
+  position: relative;
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 12px;
+  place-items: center;
+  animation: reveal-up 0.9s 0.08s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.logo-glow::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(55, 190, 255, 0.28), transparent 67%);
+  filter: blur(8px);
+}
+
+.union-logo {
+  position: relative;
+  z-index: 1;
+  max-width: 82px;
+  max-height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(84, 210, 255, 0.38));
+  animation: logo-float 3.6s 1.2s ease-in-out infinite;
+}
+
+.congress-title h1,
+.congress-title h2 {
+  margin: 0;
+  color: #fff;
+  font-weight: 900;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.congress-title h1 {
+  font-size: clamp(39px, 10.5vw, 45px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  animation: reveal-up 0.85s 0.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.congress-title h2 {
+  margin-top: 3px;
+  font-size: clamp(28px, 7.5vw, 32px);
+  line-height: 1;
+  animation: reveal-up 0.85s 0.36s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.congress-title .district-title {
+  margin-top: 3px;
+  font-size: clamp(32px, 8.7vw, 37px);
+  animation-delay: 0.52s;
+}
+
+.term {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  animation: reveal-up 0.8s 0.66s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.slogan {
+  margin-top: 10px;
+  animation: reveal-up 0.8s 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.slogan-line {
+  display: block;
+  width: 38px;
+  height: 2px;
+  margin: 0 auto 6px;
+  border-radius: 999px;
+  background: #17ddff;
+  box-shadow: 0 0 9px #17ddff;
+  transform-origin: center;
+  animation: line-expand 0.75s 0.92s ease-out backwards;
+}
+
+.slogan p {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  text-shadow:
+    0 2px 8px rgba(0, 7, 35, 0.85),
+    0 0 12px rgba(0, 79, 170, 0.45);
+}
+
+.bottom-zone {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 195px;
+  margin-top: auto;
+  padding: 9px 20px 4px;
+}
+
+.congress-info {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: stretch;
+  width: 100%;
+  min-height: 95px;
+  padding: 9px 6px;
+  border: 1px solid rgba(59, 164, 255, 0.5);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(5, 38, 97, 0.91), rgba(3, 30, 80, 0.9));
+  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(13px);
+  box-shadow:
+    0 12px 25px rgba(0, 13, 54, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: reveal-up 0.9s 0.96s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.info-divider {
+  width: 1px;
+  margin: 5px 0;
+  background: linear-gradient(transparent, rgba(89, 173, 255, 0.38), transparent);
+}
+
+.info-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.info-item svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 7px;
+  color: #12d8ff;
+  filter: drop-shadow(0 0 5px rgba(18, 216, 255, 0.4));
+  animation: icon-pop 0.6s 1.3s ease-out backwards;
+}
+
+.info-item strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.info-item span {
+  margin-top: 6px;
+  color: #a8c3e7;
+  font-size: 9px;
+}
+
+.welcome-page .checkin-button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 52px;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 11px;
+  color: #fff;
+  background: linear-gradient(100deg, #2943ff 0%, #176eff 42%, #00c7f5 100%);
+  box-shadow:
+    0 8px 18px rgba(0, 118, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  animation: reveal-up 0.82s 1.08s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.welcome-page .checkin-button::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -45%;
+  bottom: -45%;
+  left: -35%;
+  width: 24%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  animation: button-shimmer 4s 2.2s ease-in-out infinite;
+}
+
+.checkin-button span {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding-left: 22px;
+  text-align: center;
+}
+
+.checkin-button svg {
+  position: relative;
+  z-index: 1;
+  margin-right: 15px;
+}
+
+.checkin-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 3px;
+}
+
+.checkin-button:active {
+  transform: scale(0.985);
+}
+
+.scroll-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  color: #d8eeff;
+  animation:
+    fade-in 0.6s 1.32s backwards,
+    chevron-bounce 2s 1.9s ease-in-out infinite;
+}
+
+@keyframes background-enter {
+  from {
+    opacity: 0.45;
+    transform: scale(1.075);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes line-expand {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes icon-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes button-shimmer {
+  0%, 68% { left: -35%; opacity: 0; }
+  72% { opacity: 1; }
+  88%, 100% { left: 112%; opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes chevron-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@media (hover: hover) {
+  .checkin-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 152, 255, 0.42);
+  }
+}
+
+@media (max-height: 760px) {
+  .welcome-page {
+    min-height: 584px;
+  }
+
+  .welcome-header {
+    padding-top: 14px;
+  }
+
+  .logo-glow {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+
+  .union-logo {
+    max-width: 64px;
+    max-height: 64px;
+  }
+
+  .congress-title h1 { font-size: 34px; }
+  .congress-title h2 { font-size: 25px; }
+  .congress-title .district-title { font-size: 29px; }
+  .term { margin-top: 7px; }
+  .slogan { margin-top: 8px; }
+  .term { font-size: 15px; }
+  .slogan p { font-size: 12px; }
+  .bottom-zone { flex-basis: 185px; }
+  .congress-info { min-height: 90px; }
+  .welcome-page .checkin-button { height: 48px; margin-top: 11px; }
+}
+
+@media (min-width: 700px) {
+  .welcome-page {
+    border-radius: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-page *,
+  .welcome-page::before,
+  .welcome-page::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

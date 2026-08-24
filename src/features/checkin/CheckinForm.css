@@ -1,0 +1,402 @@
+.app.app--form {
+  min-height: 100dvh;
+  padding: 18px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #031a58;
+  isolation: isolate;
+}
+
+.app--form::before {
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: -3%;
+  background-image:
+    linear-gradient(180deg, rgba(1, 17, 70, 0.2), rgba(0, 78, 184, 0.08) 58%, rgba(0, 24, 91, 0.28)),
+    url("../../../img/img9.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: form-background-enter 1.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app--form::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 28%, rgba(12, 217, 255, 0.13), transparent 34%);
+  animation: form-ambient-pulse 5s ease-in-out infinite;
+}
+
+.app--form .ambient {
+  display: none;
+}
+
+.app--form .form-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  margin: auto;
+  padding: 26px 22px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(28, 191, 255, 0.4);
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(2, 42, 119, 0.64), rgba(1, 28, 87, 0.76));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 24px 54px rgba(0, 18, 73, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 32px rgba(0, 174, 255, 0.1);
+  animation: form-card-enter 0.9s 0.12s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.app--form .form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  width: 64%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #3be4ff, transparent);
+  box-shadow: 0 0 12px rgba(59, 228, 255, 0.78);
+}
+
+.form-header {
+  text-align: center;
+}
+
+.form-logo-glow {
+  position: relative;
+  display: grid;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  place-items: center;
+  animation: form-logo-enter 0.85s 0.22s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.form-logo-glow::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(35, 224, 255, 0.32), transparent 67%);
+  filter: blur(9px);
+  animation: form-logo-glow 3.8s 1.2s ease-in-out infinite;
+}
+
+.form-logo-glow img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0, 12, 54, 0.34));
+  animation: form-logo-float 3.8s 1.2s ease-in-out infinite;
+}
+
+.app--form .form-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(24px, 7vw, 29px);
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: 0 3px 14px rgba(0, 16, 75, 0.68);
+  animation: form-item-enter 0.75s 0.35s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.app--form .form-header p {
+  margin: 7px 0 0;
+  color: #c9e8ff;
+  font-size: 12px;
+  line-height: 1.55;
+  animation: form-item-enter 0.75s 0.44s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.form-fields {
+  margin-top: 18px;
+}
+
+.app--form .form-field {
+  display: block;
+  margin: 0 0 13px;
+  color: #d8f2ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  animation: form-item-enter 0.68s var(--field-delay) cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0, 20, 80, 0.8);
+}
+
+.field-control {
+  position: relative;
+  display: block;
+}
+
+.field-control > svg:first-child {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 14px;
+  width: 19px;
+  height: 19px;
+  color: #19d9ff;
+  pointer-events: none;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 5px rgba(25, 217, 255, 0.34));
+}
+
+.app--form .field-control input,
+.app--form .field-control select {
+  width: 100%;
+  height: 52px;
+  margin: 0;
+  padding: 0 43px 0 45px;
+  border: 1px solid rgba(0, 199, 255, 0.52);
+  border-radius: 10px;
+  outline: 0;
+  color: #fff;
+  background: rgba(0, 47, 126, 0.72);
+  box-shadow:
+    inset 0 0 18px rgba(0, 35, 105, 0.28),
+    0 0 0 rgba(0, 206, 255, 0);
+  font: 500 12px/1.2 "Be Vietnam Pro", sans-serif;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.app--form .field-control input::placeholder {
+  color: #9cc4e5;
+  opacity: 1;
+}
+
+.app--form .field-control select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.app--form .field-control select option {
+  color: #fff;
+  background: #053578;
+}
+
+.app--form .field-control input:focus,
+.app--form .field-control select:focus {
+  border-color: #32e3ff;
+  background: rgba(0, 61, 151, 0.84);
+  box-shadow:
+    0 0 0 3px rgba(22, 218, 255, 0.12),
+    0 0 18px rgba(0, 195, 255, 0.2);
+}
+
+.app--form .field-control input[aria-invalid="true"],
+.app--form .field-control select[aria-invalid="true"] {
+  border-color: #ff7b89;
+  box-shadow:
+    0 0 0 3px rgba(255, 72, 91, 0.12),
+    0 0 16px rgba(255, 64, 87, 0.18);
+}
+
+.app--form .field-error {
+  display: block;
+  margin: 5px 2px 0;
+  color: #ffb5bd;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: left;
+  text-shadow: 0 2px 7px rgba(55, 0, 9, 0.72);
+  animation: form-error-enter 0.3s ease-out both;
+}
+
+.field-control .select-chevron {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  width: 17px;
+  height: 17px;
+  color: #d7f5ff;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.app--form .form-error {
+  margin: 14px 0 -3px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 148, 148, 0.4);
+  border-radius: 9px;
+  color: #ffe2e2;
+  background: rgba(128, 8, 36, 0.42);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  animation: form-error-enter 0.35s ease-out both;
+}
+
+.app--form .submit-button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 52px;
+  margin-top: 18px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(105, 230, 255, 0.4);
+  border-radius: 11px;
+  color: #fff;
+  background: linear-gradient(100deg, #2943ff 0%, #126eff 45%, #00c7f5 100%);
+  box-shadow:
+    0 10px 22px rgba(0, 101, 255, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font: 800 13px/1 "Be Vietnam Pro", sans-serif;
+  letter-spacing: 0.035em;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  animation: form-item-enter 0.75s 0.92s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.app--form .submit-button::after {
+  content: "";
+  position: absolute;
+  top: -55%;
+  bottom: -55%;
+  left: -35%;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+  transform: skewX(-20deg);
+  animation: form-button-shimmer 4s 2.1s ease-in-out infinite;
+}
+
+.app--form .submit-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app--form .submit-button:disabled {
+  border-color: rgba(116, 174, 213, 0.3);
+  color: rgba(231, 246, 255, 0.72);
+  background: linear-gradient(100deg, rgba(45, 92, 161, 0.8), rgba(24, 112, 166, 0.8));
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.app--form .submit-button:focus-visible {
+  outline: 3px solid rgba(139, 239, 255, 0.82);
+  outline-offset: 3px;
+}
+
+.app--form .submit-button:not(:disabled):active {
+  transform: scale(0.985);
+}
+
+@keyframes form-background-enter {
+  from { opacity: 0.48; transform: scale(1.07); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes form-card-enter {
+  from { opacity: 0; transform: translateY(26px) scale(0.985); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes form-logo-enter {
+  from { opacity: 0; transform: translateY(-15px) scale(0.82); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes form-item-enter {
+  from { opacity: 0; transform: translateY(18px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes form-error-enter {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes form-logo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes form-logo-glow {
+  0%, 100% { opacity: 0.58; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes form-ambient-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes form-button-shimmer {
+  0%, 68% { left: -35%; opacity: 0; }
+  72% { opacity: 1; }
+  88%, 100% { left: 112%; opacity: 0; }
+}
+
+@media (hover: hover) {
+  .app--form .submit-button:not(:disabled):hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+    box-shadow: 0 13px 28px rgba(0, 137, 255, 0.43);
+  }
+}
+
+@media (max-height: 720px) {
+  .app.app--form {
+    padding-block: 10px;
+  }
+
+  .app--form .form-card {
+    padding-block: 18px;
+  }
+
+  .form-logo-glow,
+  .form-logo-glow img {
+    width: 84px;
+    height: 84px;
+  }
+
+  .form-fields {
+    margin-top: 13px;
+  }
+
+  .app--form .form-field {
+    margin-bottom: 9px;
+  }
+
+  .app--form .field-control input,
+  .app--form .field-control select,
+  .app--form .submit-button {
+    height: 47px;
+  }
+
+  .app--form .submit-button {
+    margin-top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app--form *,
+  .app--form::before,
+  .app--form::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,306 @@
+.app.app--activity-list {
+  display: block;
+  min-height: 100dvh;
+  padding: 8px 8px 28px;
+  overflow: visible;
+  color: #fff;
+  background: #03184f;
+  isolation: isolate;
+}
+
+.app--activity-list::before {
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(0, 13, 57, 0.2), rgba(0, 28, 94, 0.14), rgba(0, 13, 57, 0.38)),
+    url("../../../img/img9.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.app--activity-list::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 16%, rgba(0, 205, 255, 0.14), transparent 30%);
+}
+
+.app--activity-list .ambient {
+  display: none;
+}
+
+.activity-list-page {
+  width: min(100%, 430px);
+  min-height: calc(100dvh - 16px);
+  margin: 0 auto;
+  padding: 0 11px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(41, 187, 255, 0.4);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(0, 30, 98, 0.8), rgba(0, 19, 67, 0.92));
+  box-shadow: 0 24px 58px rgba(0, 12, 58, 0.42);
+  animation: activity-list-enter 0.55s ease-out both;
+}
+
+.activity-list-header {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  display: grid;
+  min-height: 76px;
+  margin-inline: -11px;
+  padding: max(12px, env(safe-area-inset-top)) 14px 10px;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(0, 23, 80, 0.99), rgba(0, 31, 97, 0.93));
+  text-align: center;
+}
+
+.activity-list-header button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(73, 200, 255, 0.38);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 91, 184, 0.38);
+  box-shadow: none;
+}
+
+.activity-list-header button svg {
+  width: 19px;
+  height: 19px;
+}
+
+.activity-list-header span {
+  display: block;
+  color: #62ddff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+}
+
+.activity-list-header h1 {
+  margin: 3px 0 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.activity-list-header > img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 7px rgba(41, 220, 255, 0.3));
+}
+
+.activity-list-posts {
+  display: grid;
+  margin-top: 12px;
+  gap: 11px;
+}
+
+.activity-list-post {
+  overflow: hidden;
+  border: 1px solid rgba(69, 186, 248, 0.3);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(2, 49, 127, 0.9), rgba(1, 27, 82, 0.94));
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.activity-list-post a {
+  display: grid;
+  min-height: 126px;
+  padding: 9px;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 11px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.activity-list-post img {
+  width: 112px;
+  height: 100%;
+  min-height: 108px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #073375;
+}
+
+.activity-list-post a > div {
+  min-width: 0;
+}
+
+.activity-list-post span {
+  color: #43e1ff;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.activity-list-post h2 {
+  display: -webkit-box;
+  margin: 4px 0 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.activity-list-post p {
+  display: -webkit-box;
+  margin: 5px 0 0;
+  overflow: hidden;
+  color: #aac8df;
+  font-size: 8.5px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.activity-list-post time {
+  display: block;
+  margin-top: 7px;
+  color: #80acd0;
+  font-size: 8px;
+}
+
+.activity-list-post a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+
+.activity-list-empty {
+  padding: 30px 15px;
+  color: #b7d3e8;
+  text-align: center;
+}
+
+.activity-load-more {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  margin-top: 17px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(72, 214, 255, 0.54);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(100deg, rgba(37, 72, 239, 0.88), rgba(0, 184, 227, 0.88));
+  box-shadow: 0 9px 20px rgba(0, 108, 218, 0.25);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.activity-load-more svg {
+  width: 17px;
+  height: 17px;
+}
+
+.activity-list-scroll-top {
+  position: fixed;
+  z-index: 20;
+  right: max(18px, calc((100vw - 430px) / 2 + 18px));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  display: grid;
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  color: #075bb6;
+  background: #fff;
+  box-shadow:
+    0 10px 24px rgba(0, 18, 68, 0.38),
+    0 0 16px rgba(77, 220, 255, 0.25);
+  cursor: pointer;
+  animation: activity-list-scroll-top-enter 0.24s ease-out both;
+}
+
+.activity-list-scroll-top svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.6;
+}
+
+.activity-list-scroll-top:focus-visible {
+  outline: 3px solid #29d9ff;
+  outline-offset: 3px;
+}
+
+.activity-list-scroll-top:active {
+  transform: scale(0.94);
+}
+
+.activity-list-header button:focus-visible,
+.activity-load-more:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .activity-list-post:hover {
+    border-color: rgba(80, 218, 255, 0.68);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes activity-list-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes activity-list-scroll-top-enter {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 360px) {
+  .activity-list-post a {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .activity-list-post img {
+    width: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-list-page {
+    animation: none;
+  }
+
+  .activity-list-scroll-top {
+    animation: none;
+  }
+}

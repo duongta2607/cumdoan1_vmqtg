@@ -1,0 +1,464 @@
+.app.app--game {
+  display: block;
+  min-height: 100dvh;
+  padding: 8px 8px 96px;
+  overflow: visible;
+  color: #fff;
+  background: #03184f;
+  isolation: isolate;
+}
+
+.app--game::before {
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(0, 13, 57, 0.22), rgba(0, 27, 94, 0.14), rgba(0, 13, 57, 0.4)),
+    url("../../../img/img9.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.app--game::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 16%, rgba(0, 205, 255, 0.16), transparent 31%);
+}
+
+.app--game .ambient {
+  display: none;
+}
+
+.youth-game-page {
+  width: min(100%, 430px);
+  min-height: calc(100dvh - 16px);
+  margin: 0 auto;
+  padding: 0 11px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(41, 187, 255, 0.4);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(0, 30, 98, 0.8), rgba(0, 19, 67, 0.94));
+  box-shadow: 0 24px 58px rgba(0, 12, 58, 0.42);
+}
+
+.youth-game-header {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  display: grid;
+  min-height: 76px;
+  margin-inline: -11px;
+  padding: max(12px, env(safe-area-inset-top)) 14px 10px;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(0, 23, 80, 0.99), rgba(0, 31, 97, 0.94));
+  text-align: center;
+}
+
+.youth-game-header button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(73, 200, 255, 0.38);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 91, 184, 0.38);
+  box-shadow: none;
+}
+
+.youth-game-header button svg {
+  width: 19px;
+  height: 19px;
+}
+
+.youth-game-header span {
+  display: block;
+  color: #63e3ff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.youth-game-header h1 {
+  margin: 3px 0 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.youth-game-header > img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.youth-game-intro {
+  display: flex;
+  margin: 13px 0 10px;
+  padding: 12px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(64, 203, 255, 0.35);
+  border-radius: 13px;
+  background: rgba(1, 49, 126, 0.68);
+}
+
+.youth-game-intro > svg {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  color: #41e5ff;
+}
+
+.youth-game-intro h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.youth-game-intro p {
+  margin: 4px 0 0;
+  color: #b4d4e8;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.youth-game-shell {
+  padding: 10px;
+  border: 1px solid rgba(58, 202, 255, 0.42);
+  border-radius: 16px;
+  background: rgba(0, 19, 67, 0.78);
+  box-shadow: 0 14px 30px rgba(0, 10, 47, 0.3);
+}
+
+.youth-game-hud {
+  display: grid;
+  margin-bottom: 8px;
+  grid-template-columns: 1fr 1fr 42px;
+  gap: 8px;
+}
+
+.youth-game-hud > div {
+  display: flex;
+  min-height: 38px;
+  padding: 7px 10px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 9px;
+  background: rgba(0, 77, 165, 0.48);
+}
+
+.youth-game-hud span {
+  color: #a9cee6;
+  font-size: 9px;
+}
+
+.youth-game-hud strong {
+  color: #fff;
+  font-size: 15px;
+}
+
+.youth-game-hud .youth-game-sound {
+  display: grid;
+  width: 42px;
+  min-height: 38px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(70, 218, 255, 0.42);
+  border-radius: 9px;
+  color: #61e8ff;
+  background: rgba(0, 77, 165, 0.48);
+  box-shadow: none;
+}
+
+.youth-game-hud .youth-game-sound svg {
+  width: 18px;
+  height: 18px;
+}
+
+.youth-game-hud .youth-game-sound:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.youth-game-audio-notice {
+  margin: -1px 0 8px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 216, 76, 0.38);
+  border-radius: 8px;
+  color: #fff1a8;
+  background: rgba(117, 72, 0, 0.35);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.youth-game-timer {
+  height: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(61, 130, 187, 0.3);
+}
+
+.youth-game-timer i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2948ff, #24e5ff);
+  box-shadow: 0 0 9px rgba(36, 229, 255, 0.6);
+  transition: width 0.3s linear;
+}
+
+.youth-game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(58, 211, 255, 0.48);
+  border-radius: 12px;
+  background: #03184f;
+  touch-action: none;
+}
+
+.youth-game-canvas:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.youth-game-controls {
+  display: grid;
+  margin-top: 9px;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.youth-game-controls button,
+.youth-game-start {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(72, 214, 255, 0.5);
+  border-radius: 11px;
+  color: #fff;
+  background: linear-gradient(100deg, #2948f4, #00bfe9);
+  box-shadow: 0 8px 18px rgba(0, 104, 216, 0.25);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.youth-game-controls button svg,
+.youth-game-start svg {
+  width: 20px;
+  height: 20px;
+}
+
+.youth-game-start {
+  margin-top: 9px;
+}
+
+.youth-game-controls button:active,
+.youth-game-start:active {
+  transform: scale(0.98);
+}
+
+.youth-game-symbols {
+  display: grid;
+  margin-top: 11px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.youth-game-symbols article {
+  display: grid;
+  min-width: 0;
+  min-height: 78px;
+  padding: 7px 3px;
+  place-items: center;
+  align-content: center;
+  gap: 3px;
+  border: 1px solid rgba(65, 198, 255, 0.32);
+  border-radius: 10px;
+  background: rgba(0, 59, 145, 0.53);
+  text-align: center;
+}
+
+.youth-game-symbols article > span {
+  font-size: 20px;
+}
+
+.youth-game-symbols strong {
+  color: #dff7ff;
+  font-size: 8px;
+}
+
+.youth-game-symbols small {
+  color: #55e4ff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.youth-game-result,
+.youth-game-leaderboard {
+  margin-top: 12px;
+  border: 1px solid rgba(68, 206, 255, 0.4);
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(2, 54, 137, 0.9), rgba(1, 27, 82, 0.94));
+  box-shadow: 0 12px 25px rgba(0, 13, 55, 0.22);
+}
+
+.youth-game-result {
+  display: grid;
+  padding: 19px 14px;
+  place-items: center;
+  text-align: center;
+}
+
+.youth-game-result > svg {
+  width: 42px;
+  height: 42px;
+  color: #ffd84c;
+  filter: drop-shadow(0 0 10px rgba(255, 216, 76, 0.4));
+}
+
+.youth-game-result > span {
+  margin-top: 8px;
+  color: #b9d9eb;
+  font-size: 10px;
+}
+
+.youth-game-result > strong {
+  margin-top: 4px;
+  color: #fff;
+  font-size: 25px;
+}
+
+.youth-game-result h2 {
+  margin: 5px 0 0;
+  color: #55e9ff;
+  font-size: 18px;
+}
+
+.youth-game-result > small {
+  margin-top: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.youth-game-result > small.saving {
+  color: #d7ecff;
+}
+
+.youth-game-result > small.saved {
+  color: #70f2b0;
+}
+
+.youth-game-result > small.save-error {
+  max-width: 290px;
+  color: #ffd0d7;
+}
+
+.youth-game-leaderboard {
+  padding: 13px;
+}
+
+.youth-game-leaderboard > header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.youth-game-leaderboard > header svg {
+  width: 20px;
+  height: 20px;
+  color: #ffd84c;
+}
+
+.youth-game-leaderboard h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.youth-game-leaderboard ol {
+  display: grid;
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 6px;
+  list-style: none;
+}
+
+.youth-game-leaderboard li {
+  display: grid;
+  min-height: 48px;
+  padding: 7px 9px;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  border-radius: 9px;
+  background: rgba(0, 43, 110, 0.55);
+}
+
+.youth-game-leaderboard li.current {
+  border: 1px solid rgba(73, 231, 255, 0.62);
+  background: rgba(0, 104, 189, 0.48);
+}
+
+.youth-game-leaderboard li > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #086bc3;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.youth-game-leaderboard li strong,
+.youth-game-leaderboard li small {
+  display: block;
+}
+
+.youth-game-leaderboard li strong {
+  color: #fff;
+  font-size: 11px;
+}
+
+.youth-game-leaderboard li small {
+  margin-top: 2px;
+  color: #8db8d7;
+  font-size: 8px;
+}
+
+.youth-game-leaderboard li b {
+  color: #54e8ff;
+  font-size: 13px;
+}
+
+@media (max-width: 360px) {
+  .youth-game-page {
+    padding-inline: 8px;
+  }
+
+  .youth-game-symbols strong {
+    font-size: 7px;
+  }
+}

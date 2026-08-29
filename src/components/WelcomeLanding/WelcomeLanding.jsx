@@ -46,7 +46,7 @@ export default function WelcomeLanding({ onCheckIn }) {
           <div className="congress-info">
             <div className="info-item">
               <CalendarDays />
-              <strong>25/05/2026</strong>
+              <strong>29/08/2026</strong>
               <span>Thời gian</span>
             </div>
 
@@ -57,7 +57,7 @@ export default function WelcomeLanding({ onCheckIn }) {
               <strong>
                 Nhà văn hóa
                 <br />
-                TDP số 9
+                TDP số 4
               </strong>
               <span>Địa điểm</span>
             </div>

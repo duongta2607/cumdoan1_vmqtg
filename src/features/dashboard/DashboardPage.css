@@ -254,6 +254,12 @@
   scroll-padding-inline: 0;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.dashboard-gallery:active {
+  cursor: grabbing;
 }
 
 .dashboard-gallery::-webkit-scrollbar {
@@ -262,6 +268,7 @@
 
 .gallery-item {
   position: relative;
+  flex: 0 0 100%;
   width: 100%;
   min-width: 100%;
   margin: 0;

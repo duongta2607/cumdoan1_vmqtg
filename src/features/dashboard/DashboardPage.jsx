@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { FileText, PlayCircle } from 'lucide-react';
 import unionLogo from '../../../img/img2.png';
-import bannerImage from '../../../img/img3.png';
-import galleryImageOne from '../../../img/img4.png';
-import galleryImageTwo from '../../../img/img5.jpg';
-import galleryImageThree from '../../../img/img6.png';
-import galleryImageFour from '../../../img/img12.jpg';
-import galleryImageFive from '../../../img/img13.jpg';
+import bannerImage from '../../../img/img21.png';
+import galleryImageOne from '../../../img/img19.jpg';
+import galleryImageTwo from '../../../img/img20.jpg';
+import galleryImageThree from '../../../img/img23.JPG';
+import galleryImageFour from '../../../img/img24.png';
+import galleryImageFive from '../../../img/img25.jpg';
 import maleAvatar from '../../../img/img10.png';
 import femaleAvatar from '../../../img/img11.png';
 import congressVideo from '../../../video/video01.mp4';
@@ -107,7 +107,7 @@ export default function DashboardPage({
 
         <section className="gallery-section" id="documents" aria-label="Hình ảnh Đại hội">
           <div className="dashboard-gallery" aria-roledescription="carousel">
-            {GALLERY_ITEMS.map((item) => (
+            {GALLERY_ITEMS.slice(0, 5).map((item) => (
               <figure
                 className={`gallery-item${item.src ? '' : ' gallery-item--empty'}`}
                 key={item.id}
